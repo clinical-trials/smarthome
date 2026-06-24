@@ -20,3 +20,12 @@ test("homepage contains the core offer and official Nest guides", async () => {
   );
 });
 
+test("homepage leads with commercial launch zones and the social enterprise model", async () => {
+  const html = await readFile(new URL("../index.html", import.meta.url), "utf8");
+
+  assert.match(html, /commercial launch zones/i);
+  assert.match(html, /social entrepreneurship/i);
+  assert.match(html, /Almaden, Saratoga &amp; Los Gatos/);
+  assert.match(html, /Evergreen, Berryessa &amp; East Foothills/);
+  assert.match(html, /Cambrian, Willow Glen, Cupertino &amp; west Sunnyvale/);
+});

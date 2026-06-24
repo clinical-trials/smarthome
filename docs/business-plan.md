@@ -4,15 +4,19 @@
 
 The Climate Concierge is a high-touch smart thermostat service for Bay Area households. It removes the research, purchasing, installation, app setup, scheduling, and explanation burden from the customer.
 
-## Primary Customers
+## Commercial Engine
 
-### Busy households
+### Priority Climate Concierge households
 
 Homeowners with high incomes, long commutes, demanding schedules, or a strong preference for completed-for-you household services.
 
-### Seniors and caregivers
+The $2,000 Priority Climate Concierge is the primary growth offer. It is marketed in route-dense neighborhoods where high homeownership, older single-family housing, household income, and time scarcity create strong demand for a completed-for-you service.
 
-Older homeowners who want modern comfort controls without a confusing installation process. Adult children and caregivers can coordinate remotely.
+## Social Entrepreneurship Mission
+
+Work with seniors and caregivers is the social entrepreneurship component of the business. Commercial revenue and operating efficiency from Priority Concierge appointments help sustain the $1,500 Senior Community Rate, patient instruction, caregiver coordination, large-print guides, follow-up support, and future community partnerships.
+
+The launch model does not promise a fixed donation or one-for-one subsidy. The amount of community support should grow only after real package margins and operating costs are validated.
 
 ## Initial Offers
 
@@ -26,22 +30,28 @@ A compatible one-zone installation should usually be completed in about one hour
 
 ## Launch Geography
 
-Begin with route-dense Santa Clara County zones:
+Begin with three commercially targeted, route-dense Santa Clara County clusters:
 
-1. Almaden, Evergreen, and Berryessa.
-2. Cambrian, Saratoga, and Los Gatos.
-3. Alum Rock.
-4. Morgan Hill and Gilroy.
+1. **Almaden, Saratoga, and Los Gatos:** high homeownership, premium-service fit, older conventional housing, and strong ability to pay.
+2. **Evergreen, Berryessa, and East Foothills:** large owner-occupied household base, older housing stock, busy multi-generational households, and efficient San Jose routing.
+3. **Cambrian, Willow Glen, Cupertino, and west Sunnyvale:** dense single-family neighborhoods, strong household income, and shorter travel between appointments.
 
-Expand next through San Mateo and Alameda counties, followed by San Francisco, Contra Costa, Marin, Napa, Solano, and Sonoma.
+Extend routes next to Morgan Hill and Gilroy, where demand is attractive but travel distance must be managed. Expansion then moves through San Mateo and Alameda counties, followed by San Francisco, Contra Costa, Marin, Napa, Solano, and Sonoma.
 
-## Acquisition
+## Commercial Acquisition
 
 - Local search pages for each active service zone.
-- Partnerships with senior communities, caregiver networks, real estate agents, HVAC contractors, and home organizers.
+- Partnerships with real estate agents, HVAC contractors, home organizers, executive assistants, and property managers.
 - Neighborhood direct mail designed as a useful comfort guide.
 - Referral credit after successful installations.
 - Seasonal campaigns before winter cold and inland heat events.
+
+## Senior and Caregiver Partnerships
+
+- Senior communities and aging-in-place organizations.
+- Caregiver networks and adult children coordinating household services.
+- Community centers, libraries, and local service organizations.
+- Sponsored or grant-supported installations only after unit economics and partner terms are validated.
 
 ## Customer Journey
 
@@ -61,6 +71,8 @@ Expand next through San Mateo and Alameda counties, followed by San Francisco, C
 - Additional-zone attachment rate.
 - Follow-up support minutes per customer.
 - Caregiver and neighbor referral rate.
+- Priority-to-Senior package mix and contribution margin.
+- Number and cost of community partnership appointments.
 
 ## Important Validation Before Launch
 
@@ -69,4 +81,3 @@ Expand next through San Mateo and Alameda counties, followed by San Francisco, C
 - Test package economics using actual thermostat, labor, travel, support, payment-processing, and customer-acquisition costs.
 - Confirm eligibility and wording for the Senior Community Rate.
 - Establish procedures for incompatible systems, HVAC defects, returns, cancellations, and after-hours work.
-

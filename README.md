@@ -1,6 +1,14 @@
 # The Climate Concierge
 
-First-draft website for a Bay Area smart thermostat installation concierge serving busy households, seniors, and caregivers.
+Website for a Bay Area smart thermostat installation concierge serving busy
+households, seniors, and caregivers.
+
+The v2 rework (branch `version-2-claude`) is built to drive bookings and make
+people feel confident about installation — without fabricated proof. Its
+signature is the **Neighborhood Route Scheduler**: enter a ZIP, see the days the
+concierge already routes past that street, pick a day and arrival window, and
+send a request. Pre-launch, that request is an honest hand-off (it opens a
+prefilled email; no payment, confirmed by text) rather than a live reservation.
 
 ## Preview
 

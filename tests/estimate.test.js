@@ -9,25 +9,26 @@ import {
 } from "../estimate.js";
 
 test("validates five-digit ZIP codes", () => {
-  assert.equal(validateZip("95120"), true);
-  assert.equal(validateZip("9512"), false);
-  assert.equal(validateZip("Bay Area"), false);
+  assert.equal(validateZip("87110"), true);
+  assert.equal(validateZip("8711"), false);
+  assert.equal(validateZip("Albuquerque"), false);
 });
 
-test("classifies Santa Clara launch ZIP codes as currently booking", () => {
-  assert.equal(classifyZone("95120").status, "booking");
-  assert.equal(classifyZone("95070").status, "booking");
+test("classifies Albuquerque launch ZIP codes as currently booking", () => {
+  assert.equal(classifyZone("87110").status, "booking");
+  assert.equal(classifyZone("87124").status, "booking");
 });
 
-test("classifies other Bay Area ZIP codes as expansion areas", () => {
-  assert.equal(classifyZone("94110").status, "expansion");
+test("classifies other New Mexico ZIP codes as expansion areas", () => {
+  assert.equal(classifyZone("87501").status, "expansion");
+  assert.equal(classifyZone("88001").status, "expansion");
 });
 
 test("calculates the senior community rate for one thermostat", () => {
   const estimate = calculateEstimate({
     packageType: "senior",
     thermostatCount: 1,
-    zip: "95125",
+    zip: "87110",
   });
 
   assert.equal(estimate.total, 1500);
@@ -39,7 +40,7 @@ test("calculates priority service and additional thermostat fees", () => {
   const estimate = calculateEstimate({
     packageType: "priority",
     thermostatCount: 2,
-    zip: "95148",
+    zip: "87111",
   });
 
   assert.equal(ADDITIONAL_THERMOSTAT_FEE, 750);
@@ -59,4 +60,3 @@ test("rejects invalid estimate inputs", () => {
     /valid five-digit ZIP/,
   );
 });
-

@@ -414,7 +414,7 @@ function renderRoute() {
       : "Just outside our current routes";
   const note =
     status === "expansion"
-      ? "You're on the Bay Area expansion list. Add your details and we'll reach out as routes open near you."
+      ? "You're on the New Mexico expansion list. Add your details and we'll reach out as routes open near you."
       : "We're not in your area yet — but tell us where you are and we'll let you know when a route reaches you.";
 
   routeEl.append(

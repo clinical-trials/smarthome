@@ -6,37 +6,37 @@ import { classifyZone } from "./estimate.js";
 // JavaScript's Date.getDay(): 0 = Sunday ... 6 = Saturday.
 export const NEIGHBORHOOD_ROUTES = [
   {
-    id: "almaden-saratoga-los-gatos",
-    name: "Almaden · Saratoga · Los Gatos",
-    neighborhoods: "Almaden Valley, Saratoga, Los Gatos & Monte Sereno",
-    zips: ["95120", "95030", "95032", "95033", "95070", "95008"],
+    id: "northeast-heights",
+    name: "Northeast Heights",
+    neighborhoods: "Northeast Heights & the Sandia foothills",
+    zips: ["87110", "87111", "87112", "87122"],
     serviceDays: [1, 4], // Mondays & Thursdays
-    blurb: "Older single-family streets with conventional HVAC — the most predictable hour we run.",
+    blurb: "Established foothill homes with conventional HVAC — the most predictable hour we run.",
   },
   {
-    id: "evergreen-berryessa",
-    name: "Evergreen · Berryessa · East Foothills",
-    neighborhoods: "Evergreen, Berryessa, Alum Rock & the East Foothills",
-    zips: ["95148", "95121", "95135", "95132", "95133", "95127", "95116", "95122"],
-    serviceDays: [2, 5], // Tuesdays & Fridays
-    blurb: "Multi-generational households where a patient, well-explained setup matters most.",
+    id: "north-valley",
+    name: "North Valley",
+    neighborhoods: "North Valley & Los Ranchos de Albuquerque",
+    zips: ["87107"],
+    serviceDays: [3], // Wednesdays
+    blurb: "A focused route for one of the first social-entrepreneurship launch areas.",
   },
   {
-    id: "cambrian-willow-glen",
-    name: "Cambrian · Willow Glen · Cupertino · West Sunnyvale",
-    neighborhoods: "Cambrian Park, Willow Glen, Cupertino & west Sunnyvale",
-    zips: ["95124", "95125", "95126", "95128", "95118", "95117", "95014", "95129", "95051"],
+    id: "rio-rancho-westside",
+    name: "Rio Rancho · Westside",
+    neighborhoods: "Rio Rancho, Paradise Hills & the Westside mesa",
+    zips: ["87124", "87144", "87114", "87120"],
     serviceDays: [3, 6], // Wednesdays & Saturdays
-    blurb: "Dense, close-together homes — short hops between appointments keep the day efficient.",
+    blurb: "Newer, close-together subdivisions — short hops between appointments keep the day efficient.",
   },
 ];
 
-// Any Santa Clara booking ZIP we haven't mapped to a named cluster still gets
-// real route days so no in-area visitor hits a dead end.
+// Any Albuquerque-metro booking ZIP we haven't mapped to a named cluster still
+// gets real route days so no in-area visitor hits a dead end.
 export const GENERAL_ROUTE = {
-  id: "santa-clara",
-  name: "Santa Clara County route",
-  neighborhoods: "Across Santa Clara County",
+  id: "albuquerque-metro",
+  name: "Albuquerque metro route",
+  neighborhoods: "Across the Albuquerque metro",
   zips: [],
   serviceDays: [1, 3, 5], // Mondays, Wednesdays & Fridays
   blurb: "We group your visit into the nearest active neighborhood day.",
@@ -116,13 +116,13 @@ export function buildBookingRequest({ zip, route, date, windowId, packageType })
   const dateLabel = date ? formatRouteDate(date) : "Flexible";
   const windowLabel = window ? `${window.label} (${window.range})` : "Flexible";
 
-  const subject = `Installation day request — ${route ? route.name : "Santa Clara County"}`;
+  const subject = `Installation day request — ${route ? route.name : "Albuquerque metro"}`;
 
   const body = [
     "Hello,",
     "",
     "I'd like to request a neighborhood installation day:",
-    `• Neighborhood route: ${route ? route.name : "Santa Clara County"}`,
+    `• Neighborhood route: ${route ? route.name : "Albuquerque metro"}`,
     `• Preferred day: ${dateLabel}`,
     `• Time window: ${windowLabel}`,
     `• Service: ${name}`,

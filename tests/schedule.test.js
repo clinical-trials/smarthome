@@ -10,19 +10,20 @@ import {
 } from "../schedule.js";
 
 test("maps booking ZIP codes to their neighborhood route", () => {
-  assert.equal(routeForZip("95120").route.id, "almaden-saratoga-los-gatos");
-  assert.equal(routeForZip("95148").route.id, "evergreen-berryessa");
-  assert.equal(routeForZip("95125").route.id, "cambrian-willow-glen");
+  assert.equal(routeForZip("87110").route.id, "northeast-heights");
+  assert.equal(routeForZip("87122").route.id, "northeast-heights");
+  assert.equal(routeForZip("87107").route.id, "north-valley");
+  assert.equal(routeForZip("87124").route.id, "rio-rancho-westside");
 });
 
-test("falls back to a general Santa Clara route for unmapped booking ZIPs", () => {
-  const resolved = routeForZip("95111"); // valid Santa Clara ZIP, not in a named cluster
-  assert.equal(resolved.status, "booking");
-  assert.equal(resolved.route.id, "santa-clara");
+test("puts nearby non-launch ZIPs on the expansion list", () => {
+  const resolved = routeForZip("87501"); // Santa Fe, NM — not in the 9 launch ZIPs
+  assert.equal(resolved.status, "expansion");
+  assert.equal(resolved.route, null);
 });
 
-test("returns no route outside the current booking area", () => {
-  assert.equal(routeForZip("94110").status, "expansion");
+test("returns no route outside the current service area", () => {
+  assert.equal(routeForZip("94110").status, "outside"); // California
   assert.equal(routeForZip("94110").route, null);
   assert.equal(routeForZip("123").status, "invalid");
 });
@@ -46,7 +47,7 @@ test("builds an honest, request-shaped booking message", () => {
   const route = NEIGHBORHOOD_ROUTES[0];
   const date = upcomingRouteDates(route, new Date(2026, 5, 25), 1)[0];
   const request = buildBookingRequest({
-    zip: "95120",
+    zip: "87110",
     route,
     date,
     windowId: "morning",
@@ -55,7 +56,7 @@ test("builds an honest, request-shaped booking message", () => {
 
   assert.match(request.subject, /Installation day request/);
   assert.match(request.body, /Senior Community Rate/);
-  assert.match(request.body, /95120/);
+  assert.match(request.body, /87110/);
   assert.match(request.body, /No payment now/);
   assert.equal(request.windowLabel, "Morning");
   assert.equal(TIME_WINDOWS[0].id, "morning");

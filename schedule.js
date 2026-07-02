@@ -6,37 +6,37 @@ import { classifyZone } from "./estimate.js";
 // JavaScript's Date.getDay(): 0 = Sunday ... 6 = Saturday.
 export const NEIGHBORHOOD_ROUTES = [
   {
-    id: "northeast-heights",
-    name: "Northeast Heights",
-    neighborhoods: "Northeast Heights & the Sandia foothills",
-    zips: ["87110", "87111", "87112", "87122"],
+    id: "albuquerque-foothills",
+    name: "Albuquerque foothills",
+    neighborhoods: "Far Northeast Heights, Corrales & Placitas",
+    zips: ["87122", "87111", "87048", "87043"],
     serviceDays: [1, 4], // Mondays & Thursdays
-    blurb: "Established foothill homes with conventional HVAC — the most predictable hour we run.",
+    blurb: "Established foothill and village homes — short hops between appointments keep the day efficient.",
   },
   {
-    id: "north-valley",
-    name: "North Valley",
-    neighborhoods: "North Valley & Los Ranchos de Albuquerque",
-    zips: ["87107"],
+    id: "santa-fe-los-alamos",
+    name: "Santa Fe & Los Alamos",
+    neighborhoods: "Santa Fe, Eldorado, Tesuque & Los Alamos",
+    zips: ["87544", "87506", "87505", "87508"],
+    serviceDays: [2, 5], // Tuesdays & Fridays
+    blurb: "High-altitude homes up north — we cluster the long drive into one efficient day.",
+  },
+  {
+    id: "las-cruces",
+    name: "Las Cruces",
+    neighborhoods: "East Mesa & the Las Cruces foothills",
+    zips: ["88011"],
     serviceDays: [3], // Wednesdays
-    blurb: "A focused route for one of the first social-entrepreneurship launch areas.",
-  },
-  {
-    id: "rio-rancho-westside",
-    name: "Rio Rancho · Westside",
-    neighborhoods: "Rio Rancho, Paradise Hills & the Westside mesa",
-    zips: ["87124", "87144", "87114", "87120"],
-    serviceDays: [3, 6], // Wednesdays & Saturdays
-    blurb: "Newer, close-together subdivisions — short hops between appointments keep the day efficient.",
+    blurb: "A focused southern route — we batch Las Cruces visits to make the distance worth it.",
   },
 ];
 
-// Any Albuquerque-metro booking ZIP we haven't mapped to a named cluster still
-// gets real route days so no in-area visitor hits a dead end.
+// Any New Mexico booking ZIP we haven't mapped to a named cluster still gets
+// real route days so no in-area visitor hits a dead end.
 export const GENERAL_ROUTE = {
-  id: "albuquerque-metro",
-  name: "Albuquerque metro route",
-  neighborhoods: "Across the Albuquerque metro",
+  id: "new-mexico",
+  name: "New Mexico route",
+  neighborhoods: "Across New Mexico",
   zips: [],
   serviceDays: [1, 3, 5], // Mondays, Wednesdays & Fridays
   blurb: "We group your visit into the nearest active neighborhood day.",
@@ -116,13 +116,13 @@ export function buildBookingRequest({ zip, route, date, windowId, packageType })
   const dateLabel = date ? formatRouteDate(date) : "Flexible";
   const windowLabel = window ? `${window.label} (${window.range})` : "Flexible";
 
-  const subject = `Installation day request — ${route ? route.name : "Albuquerque metro"}`;
+  const subject = `Installation day request — ${route ? route.name : "New Mexico"}`;
 
   const body = [
     "Hello,",
     "",
     "I'd like to request a neighborhood installation day:",
-    `• Neighborhood route: ${route ? route.name : "Albuquerque metro"}`,
+    `• Neighborhood route: ${route ? route.name : "New Mexico"}`,
     `• Preferred day: ${dateLabel}`,
     `• Time window: ${windowLabel}`,
     `• Service: ${name}`,

@@ -9,14 +9,14 @@ import {
 } from "../estimate.js";
 
 test("validates five-digit ZIP codes", () => {
-  assert.equal(validateZip("87110"), true);
-  assert.equal(validateZip("8711"), false);
+  assert.equal(validateZip("87122"), true);
+  assert.equal(validateZip("8712"), false);
   assert.equal(validateZip("Albuquerque"), false);
 });
 
-test("classifies Albuquerque launch ZIP codes as currently booking", () => {
-  assert.equal(classifyZone("87110").status, "booking");
-  assert.equal(classifyZone("87124").status, "booking");
+test("classifies high-SES launch ZIP codes as currently booking", () => {
+  assert.equal(classifyZone("87122").status, "booking");
+  assert.equal(classifyZone("88011").status, "booking");
 });
 
 test("classifies other New Mexico ZIP codes as expansion areas", () => {
@@ -28,7 +28,7 @@ test("calculates the senior community rate for one thermostat", () => {
   const estimate = calculateEstimate({
     packageType: "senior",
     thermostatCount: 1,
-    zip: "87110",
+    zip: "87122",
   });
 
   assert.equal(estimate.total, 1500);

@@ -10,10 +10,10 @@ import {
 } from "../schedule.js";
 
 test("maps booking ZIP codes to their neighborhood route", () => {
-  assert.equal(routeForZip("87110").route.id, "northeast-heights");
-  assert.equal(routeForZip("87122").route.id, "northeast-heights");
-  assert.equal(routeForZip("87107").route.id, "north-valley");
-  assert.equal(routeForZip("87124").route.id, "rio-rancho-westside");
+  assert.equal(routeForZip("87122").route.id, "albuquerque-foothills");
+  assert.equal(routeForZip("87043").route.id, "albuquerque-foothills");
+  assert.equal(routeForZip("87544").route.id, "santa-fe-los-alamos");
+  assert.equal(routeForZip("88011").route.id, "las-cruces");
 });
 
 test("puts nearby non-launch ZIPs on the expansion list", () => {
@@ -47,7 +47,7 @@ test("builds an honest, request-shaped booking message", () => {
   const route = NEIGHBORHOOD_ROUTES[0];
   const date = upcomingRouteDates(route, new Date(2026, 5, 25), 1)[0];
   const request = buildBookingRequest({
-    zip: "87110",
+    zip: "87122",
     route,
     date,
     windowId: "morning",
@@ -56,7 +56,7 @@ test("builds an honest, request-shaped booking message", () => {
 
   assert.match(request.subject, /Installation day request/);
   assert.match(request.body, /Senior Community Rate/);
-  assert.match(request.body, /87110/);
+  assert.match(request.body, /87122/);
   assert.match(request.body, /No payment now/);
   assert.equal(request.windowLabel, "Morning");
   assert.equal(TIME_WINDOWS[0].id, "morning");

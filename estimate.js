@@ -11,16 +11,18 @@ const PACKAGE_DETAILS = {
   },
 };
 
+// Statewide launch focuses on New Mexico's highest-income ZIP codes:
+// Albuquerque foothills + Corrales/Placitas, Santa Fe & Los Alamos, Las Cruces.
 export const LAUNCH_ZIPS = new Set([
-  "87110",
-  "87111",
-  "87112",
   "87122",
-  "87107",
-  "87124",
-  "87144",
-  "87114",
-  "87120",
+  "87111",
+  "87048",
+  "87043",
+  "87544",
+  "87506",
+  "87505",
+  "87508",
+  "88011",
 ]);
 
 export function validateZip(zip) {

@@ -42,6 +42,9 @@ test("homepage builds confidence honestly, without fabricated proof", async () =
   assert.match(html, /compatibility/i);
   // Credentials are honest placeholders, not invented numbers.
   assert.match(html, /fill in before launch/i);
+  // Nest Pro certification is featured, with an honest to-do placeholder.
+  assert.match(html, /Nest Pro/);
+  assert.match(html, /add before launch/i);
 });
 
 test("homepage offers an email-captured quick quote", async () => {

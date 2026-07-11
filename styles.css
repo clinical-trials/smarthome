@@ -1319,6 +1319,13 @@ input[type="text"]::placeholder {
   width: 100%;
 }
 
+.ticket-status {
+  margin: 0.55rem 0 0;
+  color: var(--green);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
 /* ---- confidence / worries ---- */
 .confidence-section {
   padding-block: 5.5rem;

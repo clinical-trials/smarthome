@@ -594,9 +594,18 @@ function renderTicket() {
       windowId: schedule.windowId,
       packageType: schedule.packageType,
     });
-    const action = el("a", "button button-accent", "Request this installation day");
+    const action = el("a", "button button-accent", "Request your installation day");
     action.href = mailto(request.subject, request.body);
-    ticketEl.append(action);
+
+    const note = el("p", "ticket-status");
+    note.hidden = true;
+    action.addEventListener("click", () => {
+      note.hidden = false;
+      note.textContent =
+        "Opening your email… if nothing happens, email hello@theclimateconcierge.com with the details above and we'll confirm your day by text.";
+    });
+
+    ticketEl.append(action, note);
   } else {
     const action = el("span", "button button-accent", "Pick a day and window");
     action.setAttribute("aria-disabled", "true");

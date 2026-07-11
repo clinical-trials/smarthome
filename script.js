@@ -1,4 +1,4 @@
-import { calculateEstimate } from "./estimate.js";
+import { calculateEstimate, validateZip } from "./estimate.js";
 import {
   TIME_WINDOWS,
   buildBookingRequest,
@@ -227,7 +227,7 @@ const quoteCapture = document.querySelector("#quote-capture");
 const quoteStatus = document.querySelector("#quote-status");
 let lastEstimate = null;
 
-function renderEstimate(estimate) {
+function renderEstimate(estimate, scroll = true) {
   lastEstimate = estimate;
   document.querySelector("#result-zone").textContent = estimate.zone.label;
   document.querySelector("#result-zone").dataset.status = estimate.zone.status;
@@ -240,7 +240,7 @@ function renderEstimate(estimate) {
       : `${estimate.thermostatCount} thermostats or zones are included in this working estimate, with ${currency.format(estimate.additionalFee)} in estimated add-on service.`;
 
   estimateResult.hidden = false;
-  estimateResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  if (scroll) estimateResult.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 estimateForm?.addEventListener("submit", (event) => {
@@ -278,6 +278,29 @@ estimateForm?.addEventListener("change", (event) => {
     }
   }
 });
+
+// Live estimate: recompute quietly as the ZIP, package, or zone count change —
+// no submit click needed, no scroll, no error nagging while still typing.
+function updateLiveEstimate() {
+  const data = new FormData(estimateForm);
+  const zip = String(data.get("zip") || "").trim();
+  if (!validateZip(zip)) return;
+
+  try {
+    const estimate = calculateEstimate({
+      packageType: data.get("package"),
+      thermostatCount: data.get("thermostatCount"),
+      zip,
+    });
+    renderEstimate(estimate, false);
+    schedule.packageType = data.get("package") || schedule.packageType;
+  } catch (error) {
+    /* incomplete/invalid input while typing — leave the last good estimate */
+  }
+}
+
+estimateForm?.addEventListener("input", updateLiveEstimate);
+estimateForm?.addEventListener("change", updateLiveEstimate);
 
 // Quick quote: collect an email, then hand off a prefilled detailed-quote
 // request. The lead is stored locally for now; wire it to a CRM before launch.

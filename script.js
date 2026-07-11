@@ -692,7 +692,37 @@ function runDayMap() {
   };
 }
 
+/* ------------------------------------------------------------------ */
+/* Favicon — the thermostat bulb cycles red -> blue like the logo       */
+/* ------------------------------------------------------------------ */
+function runFavicon() {
+  const link = document.querySelector('link[rel="icon"]');
+  if (!link) return;
+
+  const warm = [255, 90, 40];
+  const cool = [47, 111, 237];
+  const icon = (rgb) => {
+    const hex = rgb
+      .map((v) => Math.round(v).toString(16).padStart(2, "0"))
+      .join("");
+    return `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23171a16' stroke-width='2.6'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23${hex}'/%3E%3C/svg%3E`;
+  };
+
+  if (reduceMotion.matches) {
+    link.href = icon(warm);
+    return;
+  }
+
+  const period = 3400;
+  window.setInterval(() => {
+    if (document.hidden) return;
+    const t = (1 - Math.cos((2 * Math.PI * Date.now()) / period)) / 2;
+    link.href = icon(warm.map((w, i) => w + (cool[i] - w) * t));
+  }, 180);
+}
+
 runNest();
 runRouteMap();
 runBookBar();
+runFavicon();
 highlightDay = runDayMap();

@@ -10,14 +10,14 @@ import {
 } from "../schedule.js";
 
 test("maps booking ZIP codes to their neighborhood route", () => {
-  assert.equal(routeForZip("87122").route.id, "albuquerque-foothills");
-  assert.equal(routeForZip("87043").route.id, "albuquerque-foothills");
-  assert.equal(routeForZip("87544").route.id, "santa-fe-los-alamos");
-  assert.equal(routeForZip("88011").route.id, "las-cruces");
+  assert.equal(routeForZip("87507").route.id, "monday-santa-fe");
+  assert.equal(routeForZip("87107").route.id, "tuesday-north-valley");
+  assert.equal(routeForZip("87122").route.id, "wednesday-ne-heights");
+  assert.equal(routeForZip("87117").route.id, "thursday-se-kirtland");
 });
 
 test("puts nearby non-launch ZIPs on the expansion list", () => {
-  const resolved = routeForZip("87501"); // Santa Fe, NM — not in the 9 launch ZIPs
+  const resolved = routeForZip("87124"); // Rio Rancho — not on the five day-routes
   assert.equal(resolved.status, "expansion");
   assert.equal(resolved.route, null);
 });

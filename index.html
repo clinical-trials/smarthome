@@ -701,144 +701,117 @@
             </p>
           </div>
 
-          <figure class="route-map" data-routemap>
+          <figure class="route-map">
             <figcaption class="route-map-bar">
-              <span>Albuquerque hub</span>
-              <span>Nine launch ZIPs</span>
-              <span>Road-mile model</span>
+              <span>Santa Fe &amp; Albuquerque</span>
+              <span>Five weekly day-routes</span>
+              <span>~270 mi / week</span>
             </figcaption>
 
-            <div class="route-map-frame">
+            <div class="daylegend" id="daylegend" role="group" aria-label="Highlight a route day">
+              <button type="button" class="daychip is-active" data-day="d1" style="--c:#e74c3c">Mon · Santa Fe</button>
+              <button type="button" class="daychip is-active" data-day="d2" style="--c:#3498db">Tue · N Valley</button>
+              <button type="button" class="daychip is-active" data-day="d3" style="--c:#27ae60">Wed · NE Heights</button>
+              <button type="button" class="daychip is-active" data-day="d4" style="--c:#e67e22">Thu · SE/Kirtland</button>
+              <button type="button" class="daychip is-active" data-day="d5" style="--c:#9b59b6">Fri · Central/SV</button>
+            </div>
+
+            <div class="route-map-frame daymap-frame">
               <svg
-                class="route-map-svg"
-                viewBox="0 0 800 540"
+                class="route-map-svg daymap"
+                data-daymap
+                viewBox="0 0 800 1000"
                 role="img"
-                aria-label="Representative road-mile map: routes from a central Albuquerque hub out to nine high-SES New Mexico ZIP codes, grouped into three clusters that share installation days."
+                aria-label="Schematic five-day route plan across Santa Fe and Albuquerque; each colored route is one weekday of installations."
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <rect x="0" y="0" width="800" height="540" fill="#1d3a2c" />
-                <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="1">
-                  <line x1="160" y1="0" x2="160" y2="540" />
-                  <line x1="320" y1="0" x2="320" y2="540" />
-                  <line x1="480" y1="0" x2="480" y2="540" />
-                  <line x1="640" y1="0" x2="640" y2="540" />
-                  <line x1="0" y1="135" x2="800" y2="135" />
-                  <line x1="0" y1="270" x2="800" y2="270" />
-                  <line x1="0" y1="405" x2="800" y2="405" />
+                <path class="road" d="M 520 270 C 500 320, 460 340, 450 420 L 440 950" />
+                <text class="road-label" x="470" y="330">I-25</text>
+                <path class="road" d="M 100 700 L 700 665" />
+                <text class="road-label" x="120" y="690">I-40</text>
+                <path d="M 330 380 C 320 500, 340 600, 315 800" stroke="#1f4a6b" stroke-width="8" fill="none" opacity="0.6" />
+                <text class="road-label" x="255" y="500" fill="#3a6d94">Rio Grande</text>
+
+                <text class="zone-label" x="330" y="40">SANTA FE</text>
+                <text class="zone-label" x="310" y="370">ALBUQUERQUE</text>
+
+                <g class="dayroute" id="d1">
+                  <path d="M 330 190 L 400 140 L 420 70 M 420 70 L 400 140 L 470 190 L 520 250" stroke="#e74c3c" stroke-width="4" fill="none" stroke-linecap="round" />
+                  <g><circle cx="330" cy="190" r="16" fill="#e74c3c" /><text class="zip-label" x="330" y="195" text-anchor="middle">1</text><text class="zip-label" x="330" y="225" text-anchor="middle">87507</text></g>
+                  <g><circle cx="400" cy="140" r="16" fill="#e74c3c" /><text class="zip-label" x="400" y="145" text-anchor="middle">2</text><text class="zip-label" x="358" y="128" text-anchor="middle">87501</text></g>
+                  <g><circle cx="420" cy="70" r="16" fill="#e74c3c" /><text class="zip-label" x="420" y="75" text-anchor="middle">3</text><text class="zip-label" x="470" y="70" text-anchor="middle">87506</text></g>
+                  <g><circle cx="470" cy="190" r="16" fill="#e74c3c" /><text class="zip-label" x="470" y="195" text-anchor="middle">4</text><text class="zip-label" x="520" y="180" text-anchor="middle">87505</text></g>
+                  <g><circle cx="520" cy="250" r="16" fill="#e74c3c" /><text class="zip-label" x="520" y="255" text-anchor="middle">5</text><text class="zip-label" x="570" y="250" text-anchor="middle">87508</text></g>
                 </g>
 
-                <path class="rm-route rm-c1" pathLength="1" d="M400 150 Q540 135 620 135" />
-                <path class="rm-route rm-c1" pathLength="1" d="M400 150 Q600 230 715 355" />
-                <path class="rm-route rm-c1" pathLength="1" d="M400 150 Q520 330 640 405" />
-                <path class="rm-route rm-c2" pathLength="1" d="M400 150 Q470 330 560 485" />
-                <path class="rm-route rm-c1" pathLength="1" d="M400 150 Q590 170 700 250" />
-                <path class="rm-route rm-c3" pathLength="1" d="M400 150 Q430 320 470 440" />
-                <path class="rm-route rm-c3" pathLength="1" d="M400 150 Q400 330 430 480" />
-                <path class="rm-route rm-c3" pathLength="1" d="M400 150 Q340 320 315 455" />
-                <path class="rm-route rm-c3" pathLength="1" d="M400 150 Q290 220 230 360" />
-
-                <circle class="rm-van rm-van-1" r="4.5" fill="#fffdf7" stroke="#14271d" stroke-width="1.5" />
-                <circle class="rm-van rm-van-2" r="4.5" fill="#fffdf7" stroke="#14271d" stroke-width="1.5" />
-
-                <circle class="rm-hub-ring" cx="400" cy="150" r="11" fill="none" stroke="#ff5a28" stroke-width="2" />
-                <circle cx="400" cy="150" r="11" fill="#ff5a28" stroke="#fffdf7" stroke-width="2" />
-                <text class="rm-hublabel" x="400" y="118" text-anchor="middle">ALBUQUERQUE HUB</text>
-
-                <g class="rm-node">
-                  <circle cx="620" cy="135" r="8" fill="#e9dc69" stroke="#14271d" stroke-width="2" />
-                  <circle cx="715" cy="355" r="8" fill="#e9dc69" stroke="#14271d" stroke-width="2" />
-                  <circle cx="640" cy="405" r="8" fill="#e9dc69" stroke="#14271d" stroke-width="2" />
-                  <circle cx="560" cy="485" r="8" fill="#ff5a28" stroke="#14271d" stroke-width="2" />
-                  <circle cx="700" cy="250" r="8" fill="#e9dc69" stroke="#14271d" stroke-width="2" />
-                  <circle cx="470" cy="440" r="8" fill="#a9c3b3" stroke="#14271d" stroke-width="2" />
-                  <circle cx="430" cy="480" r="8" fill="#a9c3b3" stroke="#14271d" stroke-width="2" />
-                  <circle cx="315" cy="455" r="8" fill="#a9c3b3" stroke="#14271d" stroke-width="2" />
-                  <circle cx="230" cy="360" r="8" fill="#a9c3b3" stroke="#14271d" stroke-width="2" />
+                <g class="dayroute" id="d2">
+                  <path d="M 470 420 L 380 500 L 330 430 L 240 440 L 220 560" stroke="#3498db" stroke-width="4" fill="none" stroke-linecap="round" />
+                  <g><circle cx="470" cy="420" r="16" fill="#3498db" /><text class="zip-label" x="470" y="425" text-anchor="middle">1</text><text class="zip-label" x="520" y="415" text-anchor="middle">87113</text></g>
+                  <g><circle cx="380" cy="500" r="16" fill="#3498db" /><text class="zip-label" x="380" y="505" text-anchor="middle">2</text><text class="zip-label" x="382" y="535" text-anchor="middle">87107</text></g>
+                  <g><circle cx="330" cy="430" r="16" fill="#3498db" /><text class="zip-label" x="330" y="435" text-anchor="middle">3</text><text class="zip-label" x="330" y="405" text-anchor="middle">87048</text></g>
+                  <g><circle cx="240" cy="440" r="16" fill="#3498db" /><text class="zip-label" x="240" y="445" text-anchor="middle">4</text><text class="zip-label" x="188" y="435" text-anchor="middle">87114</text></g>
+                  <g><circle cx="220" cy="560" r="16" fill="#3498db" /><text class="zip-label" x="220" y="565" text-anchor="middle">5</text><text class="zip-label" x="168" y="560" text-anchor="middle">87120</text></g>
                 </g>
 
-                <g class="rm-label">
-                  <g><rect x="636" y="113" width="112" height="22" fill="#fffdf7" /><text x="644" y="128">87544 · 96 mi</text></g>
-                  <g><rect x="586" y="222" width="116" height="22" fill="#fffdf7" /><text x="594" y="237">87506 · 58 mi</text></g>
-                  <g><rect x="588" y="344" width="116" height="22" fill="#fffdf7" /><text x="596" y="359">87505 · 63 mi</text></g>
-                  <g><rect x="656" y="396" width="116" height="22" fill="#fffdf7" /><text x="664" y="411">87508 · 70 mi</text></g>
-                  <g><rect x="574" y="474" width="116" height="22" fill="#fffdf7" /><text x="582" y="489">88011 · 226 mi</text></g>
-                  <g><rect x="486" y="418" width="116" height="22" fill="#fffdf7" /><text x="494" y="433">87122 · 9 mi</text></g>
-                  <g><rect x="442" y="486" width="116" height="22" fill="#fffdf7" /><text x="450" y="501">87111 · 8 mi</text></g>
-                  <g><rect x="176" y="444" width="116" height="22" fill="#fffdf7" /><text x="184" y="459">87048 · 12 mi</text></g>
-                  <g><rect x="100" y="348" width="116" height="22" fill="#fffdf7" /><text x="108" y="363">87043 · 24 mi</text></g>
+                <g class="dayroute" id="d3">
+                  <path d="M 500 480 L 620 415 L 630 500 L 630 590 L 530 570" stroke="#27ae60" stroke-width="4" fill="none" stroke-linecap="round" />
+                  <g><circle cx="500" cy="480" r="16" fill="#27ae60" /><text class="zip-label" x="500" y="485" text-anchor="middle">1</text><text class="zip-label" x="500" y="513" text-anchor="middle">87109</text></g>
+                  <g><circle cx="620" cy="415" r="16" fill="#27ae60" /><text class="zip-label" x="620" y="420" text-anchor="middle">2</text><text class="zip-label" x="672" y="410" text-anchor="middle">87122</text></g>
+                  <g><circle cx="630" cy="500" r="16" fill="#27ae60" /><text class="zip-label" x="630" y="505" text-anchor="middle">3</text><text class="zip-label" x="682" y="500" text-anchor="middle">87111</text></g>
+                  <g><circle cx="630" cy="590" r="16" fill="#27ae60" /><text class="zip-label" x="630" y="595" text-anchor="middle">4</text><text class="zip-label" x="682" y="590" text-anchor="middle">87112</text></g>
+                  <g><circle cx="530" cy="570" r="16" fill="#27ae60" /><text class="zip-label" x="530" y="575" text-anchor="middle">5</text><text class="zip-label" x="530" y="603" text-anchor="middle">87110</text></g>
+                </g>
+
+                <g class="dayroute" id="d4">
+                  <path d="M 560 690 L 670 700 L 585 780 L 510 810" stroke="#e67e22" stroke-width="4" fill="none" stroke-linecap="round" />
+                  <g><circle cx="560" cy="690" r="16" fill="#e67e22" /><text class="zip-label" x="560" y="695" text-anchor="middle">1</text><text class="zip-label" x="588" y="670" text-anchor="middle">87108</text></g>
+                  <g><circle cx="670" cy="700" r="16" fill="#e67e22" /><text class="zip-label" x="670" y="705" text-anchor="middle">2</text><text class="zip-label" x="672" y="733" text-anchor="middle">87123</text></g>
+                  <g><circle cx="585" cy="780" r="16" fill="#e67e22" /><text class="zip-label" x="585" y="785" text-anchor="middle">3</text><text class="zip-label" x="637" y="785" text-anchor="middle">87116</text></g>
+                  <g><circle cx="510" cy="810" r="16" fill="#e67e22" /><text class="zip-label" x="510" y="815" text-anchor="middle">4</text><text class="zip-label" x="510" y="845" text-anchor="middle">87117</text></g>
+                  <text x="590" y="875" fill="#e67e22" font-size="11" text-anchor="middle" font-style="italic">Kirtland AFB — base access required</text>
+                </g>
+
+                <g class="dayroute" id="d5">
+                  <path d="M 490 640 L 470 700 L 410 670 L 340 650 L 330 760 L 200 730" stroke="#9b59b6" stroke-width="4" fill="none" stroke-linecap="round" />
+                  <g><circle cx="490" cy="640" r="16" fill="#9b59b6" /><text class="zip-label" x="490" y="645" text-anchor="middle">1</text><text class="zip-label" x="518" y="622" text-anchor="middle">87131</text></g>
+                  <g><circle cx="470" cy="700" r="16" fill="#9b59b6" /><text class="zip-label" x="470" y="705" text-anchor="middle">2</text><text class="zip-label" x="472" y="733" text-anchor="middle">87106</text></g>
+                  <g><circle cx="410" cy="670" r="16" fill="#9b59b6" /><text class="zip-label" x="410" y="675" text-anchor="middle">3</text><text class="zip-label" x="410" y="645" text-anchor="middle">87102</text></g>
+                  <g><circle cx="340" cy="650" r="16" fill="#9b59b6" /><text class="zip-label" x="340" y="655" text-anchor="middle">4</text><text class="zip-label" x="340" y="625" text-anchor="middle">87104</text></g>
+                  <g><circle cx="330" cy="760" r="16" fill="#9b59b6" /><text class="zip-label" x="330" y="765" text-anchor="middle">5</text><text class="zip-label" x="330" y="795" text-anchor="middle">87105</text></g>
+                  <g><circle cx="200" cy="730" r="16" fill="#9b59b6" /><text class="zip-label" x="200" y="735" text-anchor="middle">6</text><text class="zip-label" x="200" y="765" text-anchor="middle">87121</text></g>
                 </g>
               </svg>
             </div>
 
             <p class="route-map-note">
-              Representative road-mile estimates from a central Albuquerque hub.
-              Actual customer addresses and traffic conditions will vary.
+              Schematic (not to scale). Enter your ZIP above and we'll highlight
+              your day. About 270 miles a week total — Santa Fe is over half, so
+              it runs as one consolidated Monday (lightest early-week I-25 traffic).
             </p>
           </figure>
 
-          <div class="route-lower">
-            <div class="route-legend">
-              <p class="route-legend-title">Cluster key</p>
-              <ul>
-                <li class="lk lk-1">
-                  <span>01</span>
-                  <div>
-                    <strong>Santa Fe &amp; Los Alamos</strong>
-                    <small>87544 · 87506 · 87505 · 87508</small>
-                  </div>
-                </li>
-                <li class="lk lk-2">
-                  <span>02</span>
-                  <div>
-                    <strong>Las Cruces</strong>
-                    <small>88011</small>
-                  </div>
-                </li>
-                <li class="lk lk-3">
-                  <span>03</span>
-                  <div>
-                    <strong>Albuquerque foothills</strong>
-                    <small>87122 · 87111 · 87048 · 87043</small>
-                  </div>
-                </li>
-              </ul>
+          <div class="route-features">
+            <div>
+              <h3>Optimized routing</h3>
+              <p>
+                We plan the whole week to minimize transit and avoid delays, so
+                your technician arrives as quickly as possible.
+              </p>
             </div>
-
-            <table class="route-savings">
-              <caption>Cluster-day savings</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Cluster</th>
-                  <th scope="col">Separate trips</th>
-                  <th scope="col">Clustered</th>
-                  <th scope="col">Miles saved</th>
-                  <th scope="col">Time saved</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">Santa Fe &amp; Los Alamos</th>
-                  <td>574.0 mi</td>
-                  <td>211.4 mi</td>
-                  <td class="rs-save">362.6 mi</td>
-                  <td class="rs-time">326 min</td>
-                </tr>
-                <tr>
-                  <th scope="row">Las Cruces</th>
-                  <td>452.0 mi</td>
-                  <td>449.8 mi</td>
-                  <td class="rs-save">2.2 mi</td>
-                  <td class="rs-time">3 min</td>
-                </tr>
-                <tr>
-                  <th scope="row">Albuquerque foothills</th>
-                  <td>106.0 mi</td>
-                  <td>48.2 mi</td>
-                  <td class="rs-save">57.8 mi</td>
-                  <td class="rs-time">82 min</td>
-                </tr>
-              </tbody>
-            </table>
+            <div>
+              <h3>Dynamic scheduling</h3>
+              <p>
+                Flexible arrival windows that flex to your needs — pick the
+                neighborhood day that fits your calendar.
+              </p>
+            </div>
+            <div>
+              <h3>Personalized solutions</h3>
+              <p>
+                We learn your home's specifics and tailor the install and setup
+                to how you actually live.
+              </p>
+            </div>
           </div>
         </div>
       </section>

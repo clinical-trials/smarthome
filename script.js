@@ -350,6 +350,17 @@ const schedule = {
     document.querySelector('input[name="package"]:checked')?.value || "priority",
 };
 
+// Map each route to a day in the schematic diagram so the ZIP lookup can
+// highlight the right weekday.
+const ROUTE_DAY = {
+  "monday-santa-fe": "d1",
+  "tuesday-north-valley": "d2",
+  "wednesday-ne-heights": "d3",
+  "thursday-se-kirtland": "d4",
+  "friday-central-south-valley": "d5",
+};
+let highlightDay = null;
+
 function runScheduleLookup(rawZip) {
   const zip = String(rawZip).trim();
   const resolution = routeForZip(zip);
@@ -368,6 +379,9 @@ function runScheduleLookup(rawZip) {
 
   if (resolution.status === "booking") {
     schedule.dates = upcomingRouteDates(resolution.route, new Date(), 5);
+    if (highlightDay && resolution.route && ROUTE_DAY[resolution.route.id]) {
+      highlightDay(ROUTE_DAY[resolution.route.id]);
+    }
   } else {
     schedule.dates = [];
   }
@@ -402,7 +416,13 @@ function renderRoute() {
     routeEl.append(
       el("span", "route-tag", `Your route · ${schedule.zip}`),
       el("h3", null, route.name),
-      el("p", null, route.blurb),
+      el(
+        "p",
+        null,
+        route.dayLabel
+          ? `We install here on ${route.dayLabel}s. ${route.blurb}`
+          : route.blurb,
+      ),
     );
     return;
   }
@@ -610,6 +630,46 @@ function runRouteMap() {
   observer.observe(map);
 }
 
+/* ------------------------------------------------------------------ */
+/* Five-day route diagram — tap a day to highlight, or auto-highlight   */
+/* from the ZIP lookup                                                  */
+/* ------------------------------------------------------------------ */
+function runDayMap() {
+  const map = document.querySelector("[data-daymap]");
+  const legend = document.querySelector("#daylegend");
+  if (!map || !legend) return null;
+
+  const chips = [...legend.querySelectorAll(".daychip")];
+  const days = ["d1", "d2", "d3", "d4", "d5"];
+  let selected = null;
+
+  function apply() {
+    for (const id of days) {
+      const route = map.querySelector("#" + id);
+      if (route) route.classList.toggle("dim", selected !== null && id !== selected);
+    }
+    for (const chip of chips) {
+      const on = selected === null || chip.dataset.day === selected;
+      chip.classList.toggle("is-active", on);
+      chip.classList.toggle("is-dim", !on);
+    }
+  }
+
+  for (const chip of chips) {
+    chip.addEventListener("click", () => {
+      selected = selected === chip.dataset.day ? null : chip.dataset.day;
+      apply();
+    });
+  }
+
+  return (dayId) => {
+    if (!days.includes(dayId)) return;
+    selected = dayId;
+    apply();
+  };
+}
+
 runNest();
 runRouteMap();
 runBookBar();
+highlightDay = runDayMap();

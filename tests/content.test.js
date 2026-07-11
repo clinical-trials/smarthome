@@ -26,12 +26,10 @@ test("homepage pairs the scheduler with the representative route map", async () 
   assert.match(html, /neighborhood installation days/i);
 
   // Representative road-mile route map and its three clusters
-  assert.match(html, /Albuquerque hub/);
-  assert.match(html, /Miles saved/);
   assert.match(html, /Santa Fe/);
-  assert.match(html, /Las Cruces/);
-  assert.match(html, /Albuquerque foothills/);
-  assert.match(html, /88011/);
+  assert.match(html, /87507/);
+  assert.match(html, /Optimized routing/i);
+  assert.match(html, /Dynamic scheduling/i);
 });
 
 test("homepage builds confidence honestly, without fabricated proof", async () => {

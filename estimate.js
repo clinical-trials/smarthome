@@ -11,18 +11,17 @@ const PACKAGE_DETAILS = {
   },
 };
 
-// Statewide launch focuses on New Mexico's highest-income ZIP codes:
-// Albuquerque foothills + Corrales/Placitas, Santa Fe & Los Alamos, Las Cruces.
+// Active service area: every Albuquerque and Santa Fe ZIP on the five weekly
+// day-routes (plus Corrales). Other New Mexico ZIPs fall to "expansion" and get
+// a suggestion for the nearest route day.
 export const LAUNCH_ZIPS = new Set([
-  "87122",
-  "87111",
-  "87048",
-  "87043",
-  "87544",
-  "87506",
-  "87505",
-  "87508",
-  "88011",
+  // Albuquerque — Mon/Tue/Wed/Thu/Fri day-routes
+  "87102", "87104", "87105", "87106", "87107", "87108", "87109",
+  "87110", "87111", "87112", "87113", "87114", "87116", "87117",
+  "87120", "87121", "87122", "87123", "87131",
+  "87048", // Corrales
+  // Santa Fe — consolidated Monday
+  "87501", "87505", "87506", "87507", "87508",
 ]);
 
 export function validateZip(zip) {
@@ -42,7 +41,7 @@ export function classifyZone(zip) {
   if (LAUNCH_ZIPS.has(normalizedZip)) {
     return {
       status: "booking",
-      label: "Now booking in a priority launch ZIP",
+      label: "Now booking in Albuquerque & Santa Fe",
     };
   }
 

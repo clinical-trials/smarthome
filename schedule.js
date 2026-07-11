@@ -6,28 +6,49 @@ import { classifyZone } from "./estimate.js";
 // JavaScript's Date.getDay(): 0 = Sunday ... 6 = Saturday.
 export const NEIGHBORHOOD_ROUTES = [
   {
-    id: "albuquerque-foothills",
-    name: "Albuquerque foothills",
-    neighborhoods: "Far Northeast Heights, Corrales & Placitas",
-    zips: ["87122", "87111", "87048", "87043"],
-    serviceDays: [1, 4], // Mondays & Thursdays
-    blurb: "Established foothill and village homes — short hops between appointments keep the day efficient.",
+    id: "monday-santa-fe",
+    name: "Santa Fe",
+    dayLabel: "Monday",
+    neighborhoods: "Santa Fe & Eldorado",
+    zips: ["87507", "87501", "87506", "87505", "87508"],
+    serviceDays: [1], // Mondays
+    blurb: "Santa Fe runs as one consolidated Monday — the single biggest fuel saver on the week, with light early-week I-25 traffic.",
   },
   {
-    id: "santa-fe-los-alamos",
-    name: "Santa Fe & Los Alamos",
-    neighborhoods: "Santa Fe, Eldorado, Tesuque & Los Alamos",
-    zips: ["87544", "87506", "87505", "87508"],
-    serviceDays: [2, 5], // Tuesdays & Fridays
-    blurb: "High-altitude homes up north — we cluster the long drive into one efficient day.",
+    id: "tuesday-north-valley",
+    name: "North Valley & Westside",
+    dayLabel: "Tuesday",
+    neighborhoods: "North Valley, Corrales & the Westside mesa",
+    zips: ["87113", "87107", "87048", "87114", "87120"],
+    serviceDays: [2], // Tuesdays
+    blurb: "A Rio Grande loop through the North Valley and Westside.",
   },
   {
-    id: "las-cruces",
-    name: "Las Cruces",
-    neighborhoods: "East Mesa & the Las Cruces foothills",
-    zips: ["88011"],
+    id: "wednesday-ne-heights",
+    name: "Northeast Heights",
+    dayLabel: "Wednesday",
+    neighborhoods: "Northeast Heights & the Sandia foothills",
+    zips: ["87109", "87122", "87111", "87112", "87110"],
     serviceDays: [3], // Wednesdays
-    blurb: "A focused southern route — we batch Las Cruces visits to make the distance worth it.",
+    blurb: "Dense, close-together Heights homes — short hops keep the day efficient.",
+  },
+  {
+    id: "thursday-se-kirtland",
+    name: "Southeast & Kirtland",
+    dayLabel: "Thursday",
+    neighborhoods: "Southeast Albuquerque & Kirtland-adjacent",
+    zips: ["87108", "87123", "87116", "87117"],
+    serviceDays: [4], // Thursdays
+    blurb: "Southeast routes; Kirtland AFB addresses (87117) need base access arranged ahead of time.",
+  },
+  {
+    id: "friday-central-south-valley",
+    name: "Central & South Valley",
+    dayLabel: "Friday",
+    neighborhoods: "Downtown, UNM, Barelas & the South Valley",
+    zips: ["87131", "87106", "87102", "87104", "87105", "87121"],
+    serviceDays: [5], // Fridays
+    blurb: "A central and South Valley loop to close out the week.",
   },
 ];
 

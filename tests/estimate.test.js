@@ -14,14 +14,14 @@ test("validates five-digit ZIP codes", () => {
   assert.equal(validateZip("Albuquerque"), false);
 });
 
-test("classifies high-SES launch ZIP codes as currently booking", () => {
+test("classifies Albuquerque & Santa Fe launch ZIP codes as currently booking", () => {
   assert.equal(classifyZone("87122").status, "booking");
-  assert.equal(classifyZone("88011").status, "booking");
+  assert.equal(classifyZone("87507").status, "booking");
 });
 
 test("classifies other New Mexico ZIP codes as expansion areas", () => {
-  assert.equal(classifyZone("87501").status, "expansion");
-  assert.equal(classifyZone("88001").status, "expansion");
+  assert.equal(classifyZone("87571").status, "expansion");
+  assert.equal(classifyZone("88011").status, "expansion");
 });
 
 test("calculates the senior community rate for one thermostat", () => {
